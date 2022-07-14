@@ -43,7 +43,6 @@ app.get("/", function(req, res){
   });
 });
 
-
 app.get("/about", function(req, res){
   res.render("about");
 });
@@ -58,7 +57,7 @@ app.get("/compose", function(req, res){
 
 app.post("/compose", function(req, res){
   const postTitle =  req.body.postTitle;
-  const postContent =  req.body.postBody;
+  const postContent =  req.body.postContent;
 
   const newPost = new Post({
     title : postTitle,
@@ -88,11 +87,33 @@ app.get("/posts/:postId", function(req, res){
 
 app.post("/delete",function(req,res){
   const postId = req.body.deleteButton;
-  Post.deleteOne({ _id: postId }).then(function(){
-    console.log("Data deleted"); // Success
-  }).catch(function(error){
-    console.log(error); // Failure
-    });
+  Post.deleteOne({ _id: postId },function(err,res){
+    if(err) console.log(err);
+    else console.log("Deleted");
+  });
+  res.redirect("/");
+});
+
+app.post("/update",function(req,res){
+  const postId = req.body.updateButton;
+  Post.findOne({_id : postId},function(err,foundPost){
+    if(err) console.log(err);
+    else{
+      res.render("update",{post : foundPost});
+    }
+  });
+});
+
+app.post("/updatedInfoPath",function(req,res){
+  const postId = req.body.postId;
+  const postTitle = req.body.postTitle;
+  const postContent = req.body.postContent;
+  Post.findOneAndUpdate({ _id: postId},{ content: postContent},function (err, docs) {
+    if (err) console.log(err);
+  });
+  Post.findOneAndUpdate({ _id: postId},{title : postTitle}, function (err, docs) {
+    if (err) console.log(err);
+  });
   res.redirect("/");
 });
 

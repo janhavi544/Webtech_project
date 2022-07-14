@@ -1,6 +1,5 @@
 
 <%- include("partials/header"); -%>
-
 <div class="col-md-12 bg-light text-right">
   <a href='/compose'>
     <button id="compose" class="btn danger btn-default">
@@ -27,10 +26,12 @@
     <%=post.content.substring(0, 800) + " ..."%>
     <a href="/posts/<%=post._id%>">Read More</a>
   </p>
-  <form class="" action="/delete" method="post">
-    <button style = "background : white; margin-top : 25px;" type="submit" name="deleteButton" value="<%=post._id%>" style = "margin-top : 20px;"> Delete</button>
+  <form style ="display:inline;" action="/delete" method="post">
+    <button style = "background : white; margin-top : 25px; margin-right : 5px;" type="submit" name="deleteButton" value="<%=post._id%>"> Delete</button>
+  </form>
+  <form style ="display:inline;" action="/update" method="post">
+    <button style = "background : white; margin-top : 25px; margin-right : 5px;" type="submit" name="updateButton" value = "<%=post._id%>">Update</button>
   </form>
 </div>
-
 <% }) %>
 <%- include("partials/footer"); -%>
