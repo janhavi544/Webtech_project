@@ -36,6 +36,9 @@ html {
 	height: 60px;
 	background-color: #1abc9c;
 }
+.footer-padding{
+  margin-top: 80px;
+}
 
 .footer p {
 	margin-top: 25px;
