@@ -4,8 +4,10 @@ html {
 }
 
 .container-fluid {
-    padding-top: 70px;
-    padding-bottom: 70px;
+    padding-top: 20px;
+    padding-bottom: 35px;
+    margin-top: 20px;
+    background-color: #ffcc99;
 }
 .navbar {
     padding-top: 15px;
@@ -19,7 +21,9 @@ html {
 .navbar-nav  li a:hover {
     color: #1abc9c !important;
 }
-
+.navbar-brand{
+  font-weight : 700;
+}
 .footer-padding {
 	padding-bottom: 60px;
 }
@@ -51,4 +55,23 @@ html {
 .danger:hover {
   background: #f44336;
   color: white;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+.postContainer{
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+li{
+  font-weight: bold;
+}
+
+.text-center{
+  font-size: 1.8rem;
 }

@@ -8,17 +8,29 @@
     </button>
   </a>
 </div>
-
-<h1>Home</h1>
-<p> <%= startingContent %> </p>
+<div class="container" style = "margin-bottom : 40px;">
+  <div class="row">
+    <div class="col-lg-6">
+      <img src="https://legacytips.com/wp-content/uploads/2019/05/transition-from-blog-to-website-7.jpg" style="width:100%" alt="">
+    </div>
+    <div class="col-md-6" style = "padding-top : 55px ; padding-bottom : 60px; background-color:#ffccdd">
+      <b><p class = "text-center" style = "font-family: 'Nunito Sans', sans-serif;"> <%= startingContent %> </p> </b>
+    </div>
+  </div>
+</div>
 
 <%  posts.forEach(function(post){ %>
 
-<h1><%=post.title%></h1>
-<p>
-  <%=post.content.substring(0, 100) + " ..."%>
-  <a href="/posts/<%=post._id%>">Read More</a>
-</p>
-<% }) %>
+<h1 style = "font-family: 'Kanit', sans-serif;"><%=post.title%></h1>
+<div class="container container-fluid postContainer p-3 my-3 text-white" style = "background-color : #ffeecc">
+  <p>
+    <%=post.content.substring(0, 800) + " ..."%>
+    <a href="/posts/<%=post._id%>">Read More</a>
+  </p>
+  <form class="" action="/delete" method="post">
+    <button style = "background : white; margin-top : 25px;" type="submit" name="deleteButton" value="<%=post._id%>" style = "margin-top : 20px;"> Delete</button>
+  </form>
+</div>
 
+<% }) %>
 <%- include("partials/footer"); -%>
