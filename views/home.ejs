@@ -26,11 +26,11 @@
     <%=post.content.substring(0, 800) + " ..."%>
     <a href="/posts/<%=post._id%>">Read More</a>
   </p>
-  <form style ="display:inline;" action="/delete" method="post">
-    <button style = "background : white; margin-top : 25px; margin-right : 5px;" type="submit" name="deleteButton" value="<%=post._id%>"> Delete</button>
-  </form>
   <form style ="display:inline;" action="/update" method="post">
-    <button style = "background : white; margin-top : 25px; margin-right : 5px;" type="submit" name="updateButton" value = "<%=post._id%>">Update</button>
+    <button style = "background : white; margin-top : 25px; margin-right : 5px;" type="submit" name="updateButton" value = "<%=post._id%>"><i class="fa fa-pencil" aria-hidden="true"></i>  Edit</button>
+  </form>
+  <form style ="display:inline;" action="/delete" method="post">
+    <button style = "background : white; margin-top : 25px; margin-right : 5px;" type="submit" name="deleteButton" value="<%=post._id%>"> <i class="fa fa-trash"></i> Delete</button>
   </form>
 </div>
 <% }) %>

@@ -99,7 +99,7 @@ app.post("/update",function(req,res){
   Post.findOne({_id : postId},function(err,foundPost){
     if(err) console.log(err);
     else{
-      res.render("update",{postId : foundPost._id});
+      res.render("update",{post: foundPost});
     }
   });
 });
