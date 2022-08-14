@@ -53,7 +53,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.get("/", function(req, res){
-  res.render("login");
+  res.redirect("/home");
 });
 
 app.get("/home",function(req,res){
@@ -70,7 +70,7 @@ app.get("/home",function(req,res){
     });
   }
   else{
-    res.redirect("/register");
+    res.redirect("/login");
   }
 });
 

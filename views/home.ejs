@@ -18,7 +18,7 @@
   </div>
 </div>
 
-<%  posts.forEach(function(post){ %>
+<%  posts.slice().reverse().forEach(function(post){ %>
 
 <h1 style = "font-family: 'Kanit', sans-serif;"><%=post.title%></h1>
 <div class="container container-fluid postContainer p-3 my-3 text-white" style = "background-color : #ffeecc">
