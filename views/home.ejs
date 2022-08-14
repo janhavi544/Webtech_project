@@ -26,12 +26,14 @@
     <%=post.content.substring(0, 800) + " ..."%>
     <a href="/posts/<%=post._id%>">Read More</a>
   </p>
+  <% if(username==post.username) {%>
   <form style ="display:inline;" action="/update" method="post">
-    <button style = "background : white; margin-top : 25px; margin-right : 5px;" type="submit" name="updateButton" value = "<%=post._id%>"><i class="fa fa-pencil" aria-hidden="true"></i>  Edit</button>
+    <button style = "background : white; margin-top : 25px; margin-right : 5px;" type="submit" name="updateButton" value = "<%=post._id%>"><i class="fa fa-pencil" style = "color : green" aria-hidden="true"></i>  Edit</button>
   </form>
   <form style ="display:inline;" action="/delete" method="post">
-    <button style = "background : white; margin-top : 25px; margin-right : 5px;" type="submit" name="deleteButton" value="<%=post._id%>"> <i class="fa fa-trash"></i> Delete</button>
+    <button style = "background : white; margin-top : 25px; margin-right : 5px;" type="submit" name="deleteButton" value="<%=post._id%>"> <i class="fa fa-trash" style = "color : red"></i> Delete</button>
   </form>
+  <% } %>
 </div>
 <% }) %>
 <%- include("partials/footer"); -%>
